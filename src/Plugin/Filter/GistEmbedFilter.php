@@ -26,7 +26,7 @@ class GistEmbedFilter extends FilterBase {
    */
   public function process($text, $langcode) {
     $text = preg_replace_callback(
-      '/\[gist-embed (.*?)\]/',
+      '/\[embed_url: (.*?)\]/',
       function ($matches) {
         $replace = $this->replaceValues($matches[1]);
 
@@ -53,9 +53,26 @@ class GistEmbedFilter extends FilterBase {
     /** TODO inject renderer service */
     $renderer = \Drupal::getContainer()->get('renderer');
 
+    $client = \Drupal::httpClient();
+    try {
+      // get URL from link
+      preg_match_all('/<a[^>]+href=([\'"])(?<href>.+?)\1[^>]*>/i', $values, $result);
+      if (!empty($result)) {
+        if(!empty($result['href'][0])) {
+          $values=$result['href'][0];
+        }
+      }
+
+      $request = $client->get($values);
+      $status = $request->getStatusCode();
+      $content = $request->getBody()->getContents();
+    }
+    catch (Exception $e) {
+    }
+
     $elements = [
       '#theme' => 'gist_embed_filter',
-      '#gist_data' => $values,
+      '#gist_data' => $content,
     ];
 
     return $renderer->render($elements);
