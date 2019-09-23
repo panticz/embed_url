@@ -15,7 +15,7 @@ use Drupal\filter\Plugin\FilterBase;
  *
  * @Filter(
  *   id = "gist_embed_filter",
- *   title = @Translation("Ultra powered gist embedding for your website"),
+ *   title = @Translation("Embed content from external URL into your website"),
  *   type = Drupal\filter\Plugin\FilterInterface::TYPE_MARKUP_LANGUAGE
  * )
  */
@@ -42,7 +42,7 @@ class GistEmbedFilter extends FilterBase {
    * {@inheritdoc}
    */
   public function tips($long = FALSE) {
-    return $this->t('Ultra powered gist embedding for your website.');
+    return $this->t('Embed content from external URL into your website.');
   }
 
   /**

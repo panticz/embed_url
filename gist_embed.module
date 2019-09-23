@@ -16,7 +16,7 @@ function gist_embed_help($route_name, RouteMatchInterface $route_match) {
     case 'help.page.gist_embed':
       $output = '';
       $output .= '<h3>' . t('About') . '</h3>';
-      $output .= '<p>' . t('Ultra powered gist embedding for your website') . '</p>';
+      $output .= '<p>' . t('Embed content from external URL into your website') . '</p>';
       return $output;
 
     default:
