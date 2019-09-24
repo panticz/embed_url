@@ -1,14 +1,14 @@
 {
-  "name": "drupal/gist_embed",
+  "name": "drupal/embed_url",
   "type": "drupal-module",
   "description": "Embed content from external URL into your website",
   "keywords": ["Drupal"],
   "license": "GPL-2.0+",
-  "homepage": "http://drupal.org/project/gist_embed",
+  "homepage": "https://www.drupal.org/project/embed_url",
   "minimum-stability": "dev",
   "support": {
-    "issues": "http://drupal.org/project/issues/gist_embed",
-    "source": "http://cgit.drupalcode.org/gist_embed"
+    "issues": "https://www.drupal.org/project/issues/embed_url",
+    "source": "https://git.drupalcode.org/project/embed_url"
   },
   "require": {},
   "extra": {
